@@ -16,7 +16,6 @@ pictures.forEach(({url,description,likes,comments}) => {
   picturesListFragment.appendChild(pictureElement);
 });
 
-
 picturesListElement.appendChild(picturesListFragment);
 
 
