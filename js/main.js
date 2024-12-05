@@ -1,16 +1,9 @@
-const names = ['Камилла', 'Елизавета', 'Мария', 'Андрей', 'Иван', 'Дмитрий', 'Александр'];
-const comments = [
-  'Всё отлично!',
-  'В целом всё неплохо. Но не всё.',
-  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
-  'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
-  'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'];
-const useNumbersImage = [];
-const useNumbersID = [];
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+import { generatePhoto } from './generate-photo.js';
+import { renderPictures } from './gallery.js';
+const posts = [];
+for (let i = 1; i <= 25; i++) {
+  const currentPhoto = generatePhoto(i);
+  posts.push(currentPhoto);
 }
-function generateComment() {
 
 renderPictures(posts);
