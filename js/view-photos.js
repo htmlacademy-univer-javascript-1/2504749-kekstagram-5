@@ -1,8 +1,10 @@
-function renderPhotos(posts) {
-  const spisok = document.querySelector('.pictures');
-  const template = document.querySelector('#picture').content;
-  const newTemplate = template.querySelector('.picture');
-  const fragment = document.createDocumentFragment();
+import {createPhotos} from './data.js';
+
+const picturesListElement = document.querySelector('.pictures');
+const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+
+const pictures = createPhotos();
+const picturesListFragment = document.createDocumentFragment();
 
   for (let x = 0; x < posts.length; x++) {
     const templateClone = newTemplate.cloneNode(true);
