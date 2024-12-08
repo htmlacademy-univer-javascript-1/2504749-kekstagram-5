@@ -1,4 +1,4 @@
-import { isEscapeKey } from './utils.mjs';
+import { isEscapeKey } from './util.js';
 
 const bigPicture = document.querySelector('.big-picture');
 const commentsList = bigPicture.querySelector('.social__comments');
@@ -15,7 +15,6 @@ const createComment = ({avatar, name, message}) => {
   comment.querySelector('.social__text').textContent = message;
   return comment;
 };
-
 
 const renderComments = (comments) => {
   commentsList.innerHTML = '';

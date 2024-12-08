@@ -1,5 +1,5 @@
-import { getComment } from './data.mjs';
-import { getRandomInteger } from './utils.mjs';
+import { getComment } from './data.js';
+import { getRandomInteger } from './util.js';
 
 function generatePhoto(index) {
   return {

@@ -1,4 +1,4 @@
-import { getRandomInteger } from './utils.mjs';
+import { getRandomInteger } from './util.js';
 
 const NAMES = [
   'Петя',
@@ -45,6 +45,7 @@ function getRandomMessage() {
 
 const idSet = new Set();
 //const photoIdSet = new Set();
+
 function getComment() {
   let idParam = getRandomInteger(1, 10000);
   let photoIdParam = getRandomInteger(1, 6);
