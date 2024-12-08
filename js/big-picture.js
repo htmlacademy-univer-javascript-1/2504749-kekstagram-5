@@ -1,4 +1,4 @@
-import { isEscapeKey } from './util.js';
+import { isEscapeKey } from './utils.mjs';
 
 const bigPicture = document.querySelector('.big-picture');
 const commentsList = bigPicture.querySelector('.social__comments');
