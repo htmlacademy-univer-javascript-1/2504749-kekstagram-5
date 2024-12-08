@@ -79,5 +79,6 @@ pristine.addValidator(
   true
 );
 
+
 inputButton.addEventListener('change', onInputOverlayClick);
 cancelButton.addEventListener('click', onCancelClick);
