@@ -1,3 +1,4 @@
+
 import { generatePhoto } from './generate-photo.js';
 import { renderPictures } from './gallery.js';
 const posts = [];
