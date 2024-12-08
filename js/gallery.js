@@ -17,6 +17,7 @@ const createPictureElement = (picture) => {
   return newPicture;
 };
 
+
 const createPicturesFragment = (pictures) => {
   const fragment = document.createDocumentFragment();
   pictures.forEach((picture) => {

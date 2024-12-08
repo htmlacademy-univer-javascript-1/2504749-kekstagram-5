@@ -16,6 +16,7 @@ const createComment = ({avatar, name, message}) => {
   return comment;
 };
 
+
 const renderComments = (comments) => {
   commentsList.innerHTML = '';
   const fragment = document.createDocumentFragment();

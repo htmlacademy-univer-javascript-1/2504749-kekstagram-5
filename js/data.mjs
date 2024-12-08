@@ -45,7 +45,6 @@ function getRandomMessage() {
 
 const idSet = new Set();
 //const photoIdSet = new Set();
-
 function getComment() {
   let idParam = getRandomInteger(1, 10000);
   let photoIdParam = getRandomInteger(1, 6);
