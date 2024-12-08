@@ -1,4 +1,4 @@
-import { getComment } from './data.mjs';
+import { getComment } from './data.js';
 import { getRandomInteger } from './util.js';
 
 function generatePhoto(index) {
