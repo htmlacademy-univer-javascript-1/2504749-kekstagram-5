@@ -1,4 +1,3 @@
-
 import {isEscapeKey} from './util.js';
 
 const body = document.body;
