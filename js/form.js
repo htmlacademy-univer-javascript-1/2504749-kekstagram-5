@@ -5,15 +5,17 @@ import { onChangeEffect, removeFilter} from './effects.js';
 import { showErrorMessage, showSuccessMessage } from './messages.js';
 
 const MAX_TAGS = 5;
+const MAX_DESCRIPTION = 40;
 const TAGS_PATTERN = /^#[a-zа-яё0-9]{1,19}$/i;
 
 const ErrorMessages = {
   INVALID_COUNT: `Максимум ${MAX_TAGS} хэштегов`,
   NOT_ORIGINAL: 'Теги не должны повторяться',
-  INVALID_TAG: 'Тег не валиден'
+  INVALID_TAG: 'Тег не валиден',
+  INVALID_DESCRIPTION_COUNT: `Вводить больше ${MAX_DESCRIPTION} символов нельзя!`
 };
 
-const bodyElement = document.querySelector('body');
+const body = document.querySelector('body');
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
 const fieldForHashTages = document.querySelector('.text__hashtags');
@@ -33,7 +35,7 @@ const closeForm = () => {
   pristine.reset();
   resetZoomValue();
   overlay.classList.add('hidden');
-  bodyElement.classList.remove('modal-open');
+  body.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeyDown);
   effectsList.removeEventListener('click', onChangeEffect);
   removeFilter();
@@ -59,7 +61,7 @@ form.addEventListener('submit', async (evt) => {
 
 const openForm = (evt) =>{
   overlay.classList.remove('hidden');
-  bodyElement.classList.add('modal-open');
+  body.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeyDown);
   effectsList.addEventListener('click', onChangeEffect);
   overlay.querySelector('img').src = URL.createObjectURL(evt.target.files[0]);
@@ -72,6 +74,7 @@ const openForm = (evt) =>{
 const convertTagsList = (string) => string.trim().split(' ').filter((tag) => Boolean(tag.length));
 const isOnFocus = () => document.activeElement === fieldForHashTages || document.activeElement === fieldForDescription;
 const compareTagsNumber = (string) => convertTagsList(string).length <= MAX_TAGS;
+const compareSymNum = (string) => string.length <= MAX_DESCRIPTION;
 const compareOriginalTag = (string) => {
   const lowerString = convertTagsList(string).map((currentTag) => currentTag.toUpperCase());
   return lowerString.length === new Set(convertTagsList(string)).size;
@@ -112,5 +115,14 @@ pristine.addValidator(
   true
 );
 
+pristine.addValidator(
+  fieldForDescription,
+  compareSymNum,
+  ErrorMessages.INVALID_DESCRIPTION_COUNT,
+  4,
+  true
+);
+
 inputButton.addEventListener('change', onInputOverlayClick);
 cancelButton.addEventListener('click', onCancelClick);
+

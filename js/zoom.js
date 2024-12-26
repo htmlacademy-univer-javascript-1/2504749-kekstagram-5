@@ -1,4 +1,3 @@
-
 const MIN_ZOOM_VALUE = 25;
 const ZOOM_STEP = 25;
 const DEFAULT_ZOOM_VALUE = 100;
