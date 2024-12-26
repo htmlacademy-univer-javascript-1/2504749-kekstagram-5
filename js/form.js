@@ -15,7 +15,7 @@ const ErrorMessages = {
   INVALID_DESCRIPTION_COUNT: `Вводить больше ${MAX_DESCRIPTION} символов нельзя!`
 };
 
-const body = document.querySelector('body');
+const bodyElement = document.querySelector('body');
 const form = document.querySelector('.img-upload__form');
 const overlay = document.querySelector('.img-upload__overlay');
 const fieldForHashTages = document.querySelector('.text__hashtags');
@@ -35,7 +35,7 @@ const closeForm = () => {
   pristine.reset();
   resetZoomValue();
   overlay.classList.add('hidden');
-  body.classList.remove('modal-open');
+  bodyElement.classList.remove('modal-open');
   document.removeEventListener('keydown', onDocumentKeyDown);
   effectsList.removeEventListener('click', onChangeEffect);
   removeFilter();
@@ -61,7 +61,7 @@ form.addEventListener('submit', async (evt) => {
 
 const openForm = (evt) =>{
   overlay.classList.remove('hidden');
-  body.classList.add('modal-open');
+  bodyElement.classList.add('modal-open');
   document.addEventListener('keydown', onDocumentKeyDown);
   effectsList.addEventListener('click', onChangeEffect);
   overlay.querySelector('img').src = URL.createObjectURL(evt.target.files[0]);
