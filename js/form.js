@@ -5,7 +5,7 @@ import { onChangeEffect, removeFilter} from './effects.js';
 import { showErrorMessage, showSuccessMessage } from './messages.js';
 
 const MAX_TAGS = 5;
-const MAX_DESCRIPTION = 40;
+const MAX_DESCRIPTION = 140;
 const TAGS_PATTERN = /^#[a-zа-яё0-9]{1,19}$/i;
 
 const ErrorMessages = {
